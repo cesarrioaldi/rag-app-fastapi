@@ -2,10 +2,7 @@
 # rag-app-fastapi — generate.py
 # Otak chat: putuskan mode jawaban & panggil model qwen
 # =====================================================
-# DISALIN dari rag-app/src/generate.py, TIDAK diubah logikanya.
-#
-# Poin penting untuk pelajaran hari ini:
-#   ask() di bawah ini adalah FUNGSI PYTHON BIASA.
+# ask() di bawah ini sengaja tetap FUNGSI PYTHON BIASA.
 #   Dia tidak tahu apa-apa soal HTTP, FastAPI, atau JSON.
 #   Dia menerima string, mengembalikan dict.
 #

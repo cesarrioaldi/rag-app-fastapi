@@ -3,8 +3,7 @@
 -- Database LATIHAN untuk belajar FastAPI.
 -- =====================================================
 -- PENTING: file ini HANYA menyentuh database "ragapp_fastapi".
--- Tidak ada DROP DATABASE di sini, jadi database "ragapp"
--- (project aslimu) 100% tidak tersentuh.
+-- Tidak ada DROP DATABASE di sini.
 --
 -- Cara pakai (jalankan SENDIRI di terminal):
 --   createdb ragapp_fastapi
@@ -14,8 +13,7 @@
 -- Ekstensi pgvector (untuk kolom embedding)
 CREATE EXTENSION IF NOT EXISTS vector;
 
--- Tabel dokumen — sama persis strukturnya dengan rag-app,
--- supaya retrieve.py bisa disalin hampir apa adanya.
+-- Tabel dokumen.
 CREATE TABLE IF NOT EXISTS documents (
     id         SERIAL PRIMARY KEY,
     text       TEXT NOT NULL,

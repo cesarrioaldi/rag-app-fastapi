@@ -2,13 +2,9 @@
 # rag-app-fastapi — retrieve.py
 # Pencarian chunk paling mirip dengan pertanyaan.
 # =====================================================
-# INI DISALIN dari rag-app/src/retrieve.py dengan SATU perubahan:
-# nama database default jadi "ragapp_fastapi".
-#
-# Perhatikan: bagian "SELECT ... ORDER BY <=>" DI BAWAH SAMA PERSIS
-# dengan project aslimu. Ini buktinya — FastAPI nanti tidak
-# mengubah cara ambil data sama sekali. Yang berubah cuma
-# siapa yang memanggil fungsi ini (terminal vs HTTP).
+# Perhatikan: bagian "SELECT ... ORDER BY <=>" di bawah tidak
+# berubah sedikit pun. FastAPI tidak mengubah cara ambil data.
+# Yang berubah cuma siapa yang memanggil fungsi ini (terminal vs HTTP).
 # =====================================================
 
 import json
@@ -127,7 +123,7 @@ def main():
         for sumber, n in total:
             print(f"📚 DB: {n} chunk dari '{sumber}'")
     else:
-        print("⚠ Database KOSONG — salin data dari ragapp dulu.")
+        print("⚠ Database KOSONG — belum ada dokumen di 'ragapp_fastapi'.")
 
     print(f"\n🔍 Pertanyaan: {pertanyaan}\n")
     hasil = search(pertanyaan)

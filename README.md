@@ -1,12 +1,13 @@
 # rag-app-fastapi
 
-Project **latihan** untuk belajar FastAPI. Ini **terpisah** dari `rag-app` —
-database sendiri (`ragapp_fastapi`), kode sendiri. Project aslimu tidak tersentuh.
+Project **latihan** untuk belajar FastAPI. Punya database sendiri
+(`ragapp_fastapi`) dan kode sendiri — berdiri sendiri, tanpa bergantung
+project lain.
 
 ## Kenapa project terpisah?
 
-Supaya kamu bisa bereksperimen bebas tanpa takut merusak yang sudah jalan.
-Kalau ada yang salah, hapus saja folder ini. `rag-app` tetap aman.
+Supaya kamu bisa bereksperimen bebas. Kalau ada yang salah, hapus saja
+folder ini — tidak ada yang lain yang kena.
 
 ## Apa yang dipelajari?
 
@@ -38,7 +39,7 @@ source /Users/macbook/project/kerja/.venv/bin/activate
 ### Langkah 1 — Install fastapi & uvicorn
 
 ```bash
-cd /Users/macbook/project/kerja/rag-app-fastapi
+cd /Users/macbook/project/kerja/01-portofolio/rag-app-fastapi
 pip install fastapi "uvicorn[standard]" pydantic
 ```
 
@@ -63,19 +64,23 @@ createdb ragapp_fastapi
 psql -d ragapp_fastapi -f schema.sql
 ```
 
-Cek database `ragapp` (yang asli) masih utuh:
+### Langkah 4 — Isi database
+
+Database `ragapp_fastapi` punya isinya sendiri (diisi manual, bukan
+hasil salinan). Proyek ini tidak menyimpan file PDF/teks apa pun di
+folder-nya; datanya hidup di PostgreSQL.
+
+Cara mengisi (manual):
 
 ```bash
-psql -d ragapp -c "SELECT count(*) FROM documents;"
+psql -d ragapp_fastapi
 ```
 
-### Langkah 4 — Salin 12 chunk dari ragapp
+lalu `INSERT` baris-baris `documents` milikmu (kolom: `text`, `source`, `embedding`).
 
-```bash
-python salin_data.py
-```
-
-Harusnya muncul: `Selesai. Database 'ragapp_fastapi' sekarang berisi 12 chunk.`
+Belum ada data? Tidak apa-apa untuk latihan. `retrieve.py` akan bilang
+"Database KOSONG". Fitur upload PDF lewat HTTP (`/ingest`) masih rencana —
+lihat bagian akhir README.
 
 ### Langkah 5 — Test retrieve.py masih jalan
 
@@ -149,11 +154,10 @@ rag-app-fastapi/
 ├── .env.example        # template konfigurasi
 ├── requirements.txt    # daftar dependency
 ├── schema.sql          # struktur tabel (hanya untuk ragapp_fastapi)
-├── salin_data.py       # baca dari ragapp -> tulis ke ragapp_fastapi
 ├── README.md           # file ini
 └── src/
-    ├── retrieve.py     # DISALIN dari rag-app (1 baris berubah: nama DB)
-    ├── generate.py     # DISALIN dari rag-app (tidak berubah)
+    ├── retrieve.py     # mesin retrieval (SQL + embedding)
+    ├── generate.py     # penyusun jawaban
     └── main.py         # BARU — ini file FastAPI-nya
 ```
 

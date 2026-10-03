@@ -1,11 +1,11 @@
 # =====================================================
 # RagApp-FastAPI — Python Dependencies
 # =====================================================
-# Ini project LATIHAN terpisah dari rag-app asli.
+# Ini project LATIHAN yang berdiri sendiri.
 # Pakai venv bersama yang sudah ada:
 #   source /Users/macbook/project/kerja/.venv/bin/activate
 #
-# Yang SUDAH terinstall dari project rag-app (tidak perlu ulang):
+# Yang SUDAH terinstall di venv bersama (tidak perlu ulang):
 #   psycopg2-binary, python-dotenv, sentence-transformers
 #
 # Yang BARU untuk project ini (install dengan perintah di README):

@@ -14,7 +14,7 @@
 # server bisa melayani request lain sementara menunggu Ollama.
 #
 # Cara menjalankan (jalankan SENDIRI di terminal):
-#   cd /Users/macbook/project/kerja/rag-app-fastapi
+#   cd /Users/macbook/project/kerja/01-portofolio/rag-app-fastapi
 #   /Users/macbook/project/kerja/.venv/bin/uvicorn src.main_async:app --port 8001
 #
 # Kenapa port 8001? Supaya kamu bisa menjalankan main.py (8000)
