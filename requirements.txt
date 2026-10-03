@@ -1,0 +1,25 @@
+# =====================================================
+# RagApp-FastAPI — Python Dependencies
+# =====================================================
+# Ini project LATIHAN terpisah dari rag-app asli.
+# Pakai venv bersama yang sudah ada:
+#   source /Users/macbook/project/kerja/.venv/bin/activate
+#
+# Yang SUDAH terinstall dari project rag-app (tidak perlu ulang):
+#   psycopg2-binary, python-dotenv, sentence-transformers
+#
+# Yang BARU untuk project ini (install dengan perintah di README):
+#   fastapi     — kerangka web: bikin endpoint HTTP
+#   uvicorn     — server yang menjalankan FastAPI
+# =====================================================
+
+# --- Yang baru (belajar FastAPI) ---
+fastapi>=0.110.0                # kerangka endpoint HTTP
+uvicorn[standard]>=0.29.0       # server ASGI (yang "hidup" & mendengarkan port)
+pydantic>=2.6.0                 # validasi data request/response (bawaan FastAPI)
+
+# --- Yang sudah ada di venv bersama (dibutuhkan modul kita) ---
+psycopg2-binary>=2.9.9          # PostgreSQL adapter
+python-dotenv>=1.0.0            # baca .env
+sentence-transformers>=2.7.0    # model embedding all-MiniLM-L6-v2
+requests>=2.31.0                # HTTP client untuk panggil Ollama
